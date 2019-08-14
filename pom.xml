@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    
+	<modelVersion>4.0.0</modelVersion>
+    
+<groupId>com.lexicon</groupId>
+    
+<artifactId>api-repository</artifactId>
+    <version>${revision}${sha1}${changelist}</version>
+    <packaging>jar</packaging>
+
+    <repositories>
+        <repository>
+            <id>nexus.so4it.com-releases</id>
+            <name>SO4IT releases</name>
+            <url>${releases.url}</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>nexus.so4it.com-gigaspaces</id>
+            <name>SO4IT gigaspaces</name>
+            <url>${gigaspaces.url}</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>nexus.so4it.com-snapshots</id>
+            <name>SO4IT snapshots</name>
+            <url>${snapshots.url}</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>wso2-nexus</id>
+            <url>http://maven.wso2.org/nexus/content/repositories/releases</url>
+        </repository>
+        <repository>
+            <id>org.openspaces</id>
+            <url>http://maven-repository.openspaces.org</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus.so4it.com-releases</id>
+            <name>SO4IT releases</name>
+            <url>${releases.url}</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>nexus.so4it.com-gigaspaces</id>
+            <name>SO4IT gigaspaces</name>
+            <url>${gigaspaces.url}</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>nexus.so4it.com-snapshots</id>
+            <name>SO4IT snapshots</name>
+            <url>${snapshots.url}</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus.so4it.com-releases</id>
+            <url>${releases.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus.so4it.com-snapshots</id>
+            <url>${snapshots.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <properties>
+        <releases.url>https://nexus.so4it.com/content/repositories/releases/</releases.url>
+        <gigaspaces.url>https://nexus.so4it.com/content/repositories/gigaspaces/</gigaspaces.url>
+        <snapshots.url>https://nexus.so4it.com/content/repositories/snapshots/</snapshots.url>
+
+        <grpc.dependency.management.artifact.id>grpc-dependency-management-1.18.0</grpc.dependency.management.artifact.id>
+        <protobuf.dependency.management.artifact.id>protobuf-dependency-management-3.5.0</protobuf.dependency.management.artifact.id>
+        <googleapis.dependency.management.artifact.id>googleapis-dependency-management-0.0.3</googleapis.dependency.management.artifact.id>
+
+        <maven.flatten.plugin.version>1.0.1</maven.flatten.plugin.version>
+
+        <revision>0.17.0</revision>
+        <sha1></sha1>
+        <changelist>-SNAPSHOT</changelist>
+
+        <sugar.dependencies.version>0.17.0${sha1}-SNAPSHOT</sugar.dependencies.version>
+        <platform.dependency.management.version>${sugar.dependencies.version}</platform.dependency.management.version>
+        <platform.required.api.runner.dependencies.version>${sugar.dependencies.version}</platform.required.api.runner.dependencies.version>
+        <platform.provided.dependencies.version>${sugar.dependencies.version}</platform.provided.dependencies.version>
+        <platform.provided.endpoint.dependencies.version>${sugar.dependencies.version}</platform.provided.endpoint.dependencies.version>
+        <platform.required.endpoint.dependencies.version>${sugar.dependencies.version}</platform.required.endpoint.dependencies.version>
+        <platform.required.endpoint.security.dependencies.version>${sugar.dependencies.version}</platform.required.endpoint.security.dependencies.version>
+        <platform.required.logging.dependencies.version>${sugar.dependencies.version}</platform.required.logging.dependencies.version>
+        <platform.test.dependencies.version>${sugar.dependencies.version}</platform.test.dependencies.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.so4it.sugar</groupId>
+                <artifactId>${protobuf.dependency.management.artifact.id}</artifactId>
+                <version>${platform.dependency.management.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.so4it.sugar</groupId>
+                <artifactId>${grpc.dependency.management.artifact.id}</artifactId>
+                <version>${platform.dependency.management.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.so4it.sugar</groupId>
+                <artifactId>${googleapis.dependency.management.artifact.id}</artifactId>
+                <version>${platform.dependency.management.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.api.grpc</groupId>
+            <artifactId>googleapis-common-protos</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-protobuf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-stub</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${maven.flatten.plugin.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+

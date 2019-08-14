@@ -1,0 +1,21 @@
+{
+  "name":"administration",
+  "version":"0.0.1",
+  "description":"DEPRECATED: renamed to configuration. API for the administration services used by the platform",
+  "path": "https://git.so4it.com/SO4IT/sugar-api-repository/raw/develop/src/main/proto/api/administration/api.proto",
+  "authors" : [
+    {
+      "name":"Magnus Poromaa",
+      "email":"magnus.poromaa@so4it.com"
+    },
+    {
+      "name":"Mattias Hjalmarsson",
+      "email":"mattias.hjalmarsson@so4it.com"
+    }
+  ],
+  "properties": {
+    "project" : "sugar",
+    "company" : "so4it"
+  },
+  "messages" : []
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+package reference;
+
+option java_multiple_files = true;
+option java_package = "se.lexicon.reference";
+option java_outer_classname = "ReferenceProtos";
+
+service ReferenceApiService {
+    rpc CreateInstrument (CreateInstrumentRequest) returns (CreateInstrumentResponse) {
+    }
+}
+
+
+message CreateInstrumentRequest{}
+
+
+message CreateInstrumentResponse{}
+

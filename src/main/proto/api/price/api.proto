@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+package price;
+
+option java_multiple_files = true;
+option java_package = "se.lexicon.price";
+option java_outer_classname = "priceProtos";
+
+service PriceApiService {
+    rpc CreateApplication (CreatePriceRequest) returns (CreatePriceResponse) {
+    }
+}
+
+
+message CreatePriceRequest{}
+
+
+message CreatePriceResponse{}
+

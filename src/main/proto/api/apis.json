@@ -1,6 +1,7 @@
 {
   "apis": [
     "market",
-    "reference"
+    "reference",
+    "price"
   ]
 }

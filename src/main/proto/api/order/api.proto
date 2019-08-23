@@ -7,12 +7,16 @@ import "google/protobuf/wrappers.proto";
 package market;
 
 option java_multiple_files = true;
-option java_package = "se.lexicon.market";
-option java_outer_classname = "MarketProtos";
+option java_package = "se.lexicon.order";
+option java_outer_classname = "OrderProtos";
 
-service MarketApiService {
-    rpc PlaceMarketOrder (PlaceMarketOrderRequest) returns (PlaceMarketOrderResponse) {
+service OrderApiService {
+
+    rpc PlaceOrder (PlaceOrderRequest) returns (PlaceOrderResponse) {
     }
+    rpc MakeOrderDeal (OrderDealRequest) returns (OrderDealResponse) {
+    }
+
 }
 
 message Money {
@@ -31,7 +35,7 @@ enum OrderPriceType {
     FULL_LIMIT = 2;
 }
 
-message PlaceMarketOrderRequest{
+message PlaceOrderRequest{
     string ssn = 1;
     string orderid = 2;
     float amount = 3;
@@ -43,7 +47,19 @@ message PlaceMarketOrderRequest{
     Money minMaxValue = 9;
 }
 
-message PlaceMarketOrderResponse{
+message PlaceOrderResponse{
+    bool ok = 1;
+}
+
+message OrderDealRequest{
+    string ssn = 1;
+    string orderid = 2;
+    string instrument = 3;
+    int32 noOfItems = 4;
+    Money price = 10;
+}
+
+message OrderDealResponse{
     bool ok = 1;
 }
 

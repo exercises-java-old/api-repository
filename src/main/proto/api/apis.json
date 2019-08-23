@@ -2,6 +2,7 @@
   "apis": [
     "market",
     "reference",
-    "price"
+    "price",
+    "order"
   ]
 }

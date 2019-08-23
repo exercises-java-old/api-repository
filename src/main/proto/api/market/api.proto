@@ -11,13 +11,40 @@ option java_package = "se.lexicon.market";
 option java_outer_classname = "MarketProtos";
 
 service MarketApiService {
-    rpc CreateApplication (CreateMarketRequest) returns (CreateMarketResponse) {
+    rpc PlaceMarketOrder (PlaceMarketOrderRequest) returns (PlaceMarketOrderResponse) {
     }
 }
 
+message Money {
+    float amount = 1;
+    string currency = 2;
+}
 
-message CreateMarketRequest{}
+enum Side {
+    BUY = 0;
+    SELL = 1;
+}
 
+enum OrderPriceType {
+    MARKET = 0;
+    LIMIT = 1;
+    FULL_LIMIT = 2;
+}
 
-message CreateMarketResponse{}
+message PlaceMarketOrderRequest{
+    string id = 1;
+    string ssn = 2;
+    string orderid = 3;
+    float amount = 4;
+    string instrument = 5;
+    int32 noOfItems = 6;
+    Side side = 7;
+    OrderPriceType orderPriceType = 8;
+    string orderBookId = 9;
+    Money money = 10;
+}
+
+message PlaceMarketOrderResponse{
+    bool ok = 1;
+}
 

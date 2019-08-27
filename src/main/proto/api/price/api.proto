@@ -11,13 +11,22 @@ option java_package = "se.lexicon.price";
 option java_outer_classname = "priceProtos";
 
 service PriceApiService {
-    rpc CreateApplication (CreatePriceRequest) returns (CreatePriceResponse) {
+    rpc PlaceMarketPrice (PlaceMarketPriceRequest) returns (PlaceMarketPriceResponse) {
     }
 }
 
+message Money {
+    float amount = 1;
+    string currency = 2;
+}
 
-message CreatePriceRequest{}
+message PlaceMarketPriceRequest{
+string instrument = 1;
+}
 
 
-message CreatePriceResponse{}
+message PlaceMarketPriceResponse{
+Money price = 1;
+string instrument = 2;
+}
 

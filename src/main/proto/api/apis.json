@@ -3,6 +3,7 @@
     "market",
     "reference",
     "price",
-    "order"
+    "order",
+    "account"
   ]
 }

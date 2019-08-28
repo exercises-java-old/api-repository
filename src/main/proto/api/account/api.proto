@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+package account;
+
+option java_multiple_files = true;
+option java_package = "se.lexicon.account";
+option java_outer_classname = "AccountProtos";
+
+service AccountApiService {
+
+    rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {
+    }
+    
+    rpc BalanceTransaction (BalanceTransactionRequest) returns (BalanceTransactionResponse) {
+    }
+}
+
+message GetBalanceRequest{
+    string ssn = 1;
+}
+
+message GetBalanceResponse{
+    float amount = 1;
+}
+
+message BalanceTransactionRequest{
+    string ssn = 1;
+    float amount = 2;
+}
+
+message BalanceTransactionResponse{
+    float amount = 1;
+}

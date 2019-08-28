@@ -13,11 +13,34 @@ option java_outer_classname = "ReferenceProtos";
 service ReferenceApiService {
     rpc CreateInstrument (CreateInstrumentRequest) returns (CreateInstrumentResponse) {
     }
+
+    rpc GetInstrument (GetInstrumentRequest) returns (GetInstrumentResponse){
+    }
 }
 
 
-message CreateInstrumentRequest{}
+message GetInstrument{
+    string id = 1;
+    string name = 2;
+    string currency = 3;
+}
+
+message CreateInstrumentRequest{
+    string name = 1;
+    string currency = 2;
+}
 
 
-message CreateInstrumentResponse{}
+message CreateInstrumentResponse{
+}
+
+message GetInstrumentResponse{
+    string id =1;
+    string name = 2;
+    string currency = 3;
+}
+
+message GetInstrumentRequest{
+string name = 1;
+}
 

@@ -59,7 +59,5 @@ message OrderDealRequest{
     Money price = 10;
 }
 
-message OrderDealResponse{
-    bool ok = 1;
-}
+message OrderDealResponse{}
 

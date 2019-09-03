@@ -14,7 +14,7 @@ service AccountApiService {
 
     rpc GetBalance (GetBalanceRequest) returns (GetBalanceResponse) {
     }
-    
+
     rpc BalanceTransaction (BalanceTransactionRequest) returns (BalanceTransactionResponse) {
     }
 }
